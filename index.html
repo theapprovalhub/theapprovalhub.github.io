@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Approval Hub - Your Key to a New Beginning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-secondary: #f97316;
+            --color-accent: #10b981;
+            --color-dark: #1f2937;
+            --color-light: #f9fafb;
+            --color-gray: #6b7280;
+            --color-light-gray: #e5e7eb;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--color-primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ea580c;
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--color-dark);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 8rem 0 5rem;
+            margin-top: 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            color: var(--color-dark);
+        }
+
+        .service-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: 1rem 0;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f3f4f6;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-text:before {
+            content: """;
+            font-size: 3rem;
+            color: var(--color-primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .testimonial-location {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+
+        /* How It Works Section */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-dark);
+        }
+
+        .faq-answer {
+            color: var(--color-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-heading {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-toggle-label {
+                display: block;
+                font-size: 1.5rem;
+            }
+            
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-toggle:checked ~ .nav-menu {
+                transform: scaleY(1);
+            }
+            
+            .nav-menu li {
+                margin: 0;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container container">
+            <a href="#" class="logo">The Approval Hub</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            
+            <ul class="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="btn">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Stop Getting Denied. Start Getting Approved.</h1>
+                <p class="hero-subtitle">Bad credit? Past eviction? No rental history? We help you overcome the most common application hurdles with proven, legitimate support services.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-large">Check Your Eligibility</a>
+                    <a href="#services" class="btn btn-secondary btn-large">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Affordable Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3 class="service-title">Rental History Verification</h3>
+                    <div class="service-price">$149</div>
+                    <p>Boost Your Rental Approval Odds with Verified Rental History</p>
+                    <ul class="service-features">
+                        <li>4 years of positive rental history</li>
+                        <li>Matched with a verified property management company</li>
+                        <li>Electronic verification via email or fax</li>
+                        <li>Processing time 24-72 hours</li>
+                    </ul>
+                    <a href="#contact" class="btn">Select This Plan</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3 class="service-title">Co-Applicant Program</h3>
+                    <div class="service-price">$349</div>
+                    <p>Get Approved with Confidence – Let a Qualified Co-Signer Help You</p>
+                    <ul class="service-features">
+                        <li>Qualified Co-applicant with 700+ credit scores</li>
+                        <li>Verifiable income exceeding requirements</li>
+                        <li>Rental application completion</li>
+                        <li>Processing time 24-72 hours</li>
+                    </ul>
+                    <a href="#contact" class="btn">Select This Plan</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3 class="service-title">Fresh Start Housing Package</h3>
+                    <div class="service-price">$499</div>
+                    <p>Our comprehensive solution for severe application barriers</p>
+                    <ul class="service-features">
+                        <li>Credit profile assistance</li>
+                        <li>720+ Credit score building</li>
+                        <li>2-3 years of positive rental history</li>
+                        <li>Rental application completion</li>
+                        <li>Unlimited rental applications</li>
+                        <li>Nationwide service</li>
+                    </ul>
+                    <a href="#contact" class="btn">Select This Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="text-center">Our simple 4-step process makes getting approved easy and stress-free</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Complete Our Secure Assessment</h3>
+                    <p>Fill out our simple online form to determine your eligibility.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Receive Your Personalized Plan</h3>
+                    <p>We'll recommend the best service package for your situation.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Onboard Digitally via Our Portal</h3>
+                    <p>Provide necessary information through our secure platform.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Get Approved and Move In</h3>
+                    <p>We handle the verification process so you can get keys to your new home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">After my divorce, my credit was ruined. I was denied 6 times. The Approval Hub's Rental Verification program gave me a second chance. I'm writing this from my new apartment!</p>
+                    <div class="testimonial-author">Maria J.</div>
+                    <div class="testimonial-location">Atlanta, GA</div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a gig worker, my income was always questioned. The Co-Applicant Program provided the proof they needed. I got approved for my first real place in 48 hours.</p>
+                    <div class="testimonial-author">James L.</div>
+                    <div class="testimonial-location">Chicago, IL</div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I had an eviction from during the pandemic and thought we'd never find a place. The Fresh Start package was our only option. Worth every penny.</p>
+                    <div class="testimonial-author">Chloe & Mike R.</div>
+                    <div class="testimonial-location">Austin, TX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">Is this service legal?</h4>
+                        <p class="faq-answer">Absolutely. The Approval Hub operates in full compliance with all applicable laws. We provide verification and advisory services to help you present your best possible application.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4 class="faq-question">What if I get denied after using your service?</h4>
+                        <p class="faq-answer">With our Fresh Start Package, our support doesn't end. We will continue to assist you with applications until you are approved at no additional charge.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">Do I have to talk on the phone?</h4>
+                        <p class="faq-answer">No. Our entire process is designed for those who prefer text-based communication. Everything can be handled via our secure messaging portal and email.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h4 class="faq-question">How soon can you help me?</h4>
+                        <p class="faq-answer">Our Rental Verification and Co-Applicant services typically take 24-72 hours to set up. The Fresh Start Package requires 30 days for complete preparation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Ready for Your New Home?</h2>
+            <p class="text-center">Stop letting your history hold you back. Get started today with our simple assessment.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-large">Check Your Eligibility</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="text-center">Have questions? Reach out to our housing specialists for assistance.</p>
+            
+            <div style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <form>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full Name</label>
+                        <input type="text" id="name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-light-gray); border-radius: var(--border-radius);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Address</label>
+                        <input type="email" id="email" style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-light-gray); border-radius: var(--border-radius);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="service" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Service Interested In</label>
+                        <select id="service" style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-light-gray); border-radius: var(--border-radius);">
+                            <option value="">Select a service</option>
+                            <option value="verification">Rental History Verification ($149)</option>
+                            <option value="co-applicant">Co-Applicant Program ($349)</option>
+                            <option value="fresh-start">Fresh Start Housing Package ($499)</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                        <textarea id="message" rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-light-gray); border-radius: var(--border-radius);"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="footer-heading">The Approval Hub</h4>
+                    <p>Your Key to a New Beginning. Legitimately.</p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Rental History Verification</a></li>
+                        <li><a href="#services">Co-Applicant Program</a></li>
+                        <li><a href="#services">Fresh Start Housing Package</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li>Email: help@theapprovalhub.com</li>
+                        <li>Phone: 1-800-APPROVE</li>
+                        <li>Hours: Mon-Fri 9am-6pm EST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 The Approval Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
